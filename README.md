@@ -1,6 +1,6 @@
 # matrix
 
-[![Build Status](https://travis-ci.org/justcppdeveloper/matrix.svg?branch=master)](https://travis-ci.org/justcppdeveloper/matrix)
+[![Build Status](https://travis-ci.org/SVolkoff/matrix.svg?branch=master)](https://travis-ci.org/SVolkoff/matrix)
 
 matrix methods:
 - [x] rows
