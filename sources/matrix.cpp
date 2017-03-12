@@ -104,16 +104,21 @@ Matrix Matrix::operator+ (const Matrix &matr2)const
 Matrix& Matrix::operator= (const Matrix &matrix)
 {
 	if (&matrix != this)
-	for (int i = 0; str; i++)
-		delete[] matr[i];
+	{
+		for (int i = 0; i < str; i++)
+			delete[] matr[i];
+	delete[] matr;
+	}
 	str = matrix.str;
 	col = matrix.col;
 	matr = new int*[str];
 	for (int i = 0; i < str; i++)
+	{
 		matr[i] = new int[col];
-	for (int i = 0; i < str; i++)
-	for (int j = 0; j < col; j++)
-		matr[i][j] = matrix.matr[i][j];
+		for (int j = 0; j < col; j++)
+			matr[i][j] = matrix.matr[i][j];
+	}
+		
 	return *this;
 }
 Matrix Matrix::operator* (const Matrix  &matr2)const
