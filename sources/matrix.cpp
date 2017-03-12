@@ -1,15 +1,154 @@
 #include "matrix.hpp"
 
-matrix_t::matrix_t() noexcept : rows_{0}, columns_{0}, elements_{nullptr}
+Matrix::Matrix()
 {
+	str = col = 0;
+	matr = new int*[str];
+	for (int i = 0; i < str; i++)
+		matr[i] = new int[col];
+}
+Matrix::Matrix(int m, int n)
+{
+	str = m; col = n;
+	matr = new int *[str];
+	for (int i = 0; i < str; i++)
+	{
+		matr[i] = new int[col];
+		for (int j = 0; j < n; j++)
+			matr[i][j] = 0;
+	}
+
+}
+Matrix::Matrix(Matrix &Cpymatr)
+{
+	str = Cpymatr.str;
+	col = Cpymatr.col;
+	matr = new int*[str];
+	for (int i = 0; i < str; ++i)
+	{
+		matr[i] = new int[col];
+		for (int j = 0; j < col; ++j)
+			matr[i][j] = Cpymatr.matr[i][j];
+	}
+}
+Matrix:: ~Matrix()
+{
+	for (int i = 0; i < str; i++)
+	{
+		delete[] matr[i];
+	}
+	delete[] matr;
+}
+void Matrix::scan(string fname)
+{
+	cout << "Введите число строк";
+	cin >> str;
+	cout << "Введите число столбцов";
+	cin >> col;
+	ifstream file;
+	file.open(fname);
+	if (!file.is_open())
+	{
+		cout << "Файл не найден" << endl;
+		system("pause");
+		exit(1);
+	}
+
+	else
+	{
+		matr = new int*[str];
+		for (int i = 0; i < str; i++)
+		{
+			matr[i] = new int[col];
+			for (int j = 0; j < col; j++)
+				file >> matr[i][j];
+		}
+	}
+	file.close();
+}
+ostream& operator << (ostream& stream, const Matrix& matrix)
+{
+	for (int i = 0; i < matrix.str; i++)
+	{
+		for (int j = 0; j < matrix.col; j++)
+			stream << matrix.matr[i][j] << " ";
+		stream << endl;
+	}
+	return stream;
+}
+istream& operator >> (istream& stream, const Matrix& matrix)
+{
+	for (int i = 0; i < matrix.str; i++)
+	for (int j = 0; j < matrix.col; j++)
+		stream >> matrix.matr[i][j];
+	return stream;
 }
 
-auto matrix_t::rows() -> unsigned int
+Matrix Matrix::operator+ (const Matrix &matr2)const
 {
-    return rows_;
+	if ((str != matr2.str) || (col != matr2.col))
+	{
+		Matrix temp(0, 0);
+		cout << "Размер матриц не совпадает";
+		return temp;
+	}
+	else
+	{
+		Matrix temp(str, col);
+		for (int i = 0; i < str; ++i)
+		for (int j = 0; j < col; ++j)
+			temp.matr[i][j] = matr[i][j] + matr2.matr[i][j];
+		return temp;
+	}
 }
-
-auto matrix_t::columns() -> unsigned int
+Matrix& Matrix::operator= (const Matrix &matrix)
 {
-    return columns_;
+	if (&matrix != this)
+	for (int i = 0; str; i++)
+		delete[] matr[i];
+	str = matrix.str;
+	col = matrix.col;
+	matr = new int*[str];
+	for (int i = 0; i < str; i++)
+		matr[i] = new int[col];
+	for (int i = 0; i < str; i++)
+	for (int j = 0; j < col; j++)
+		matr[i][j] = matrix.matr[i][j];
+	return *this;
+}
+Matrix Matrix::operator* (const Matrix  &matr2)const
+{
+	if (matr2.str != col)
+	{
+		Matrix temp(0, 0);
+		cout << "Размер матриц не совпадает";
+		return temp;
+	}
+
+	else
+	{
+		Matrix temp(str, matr2.col);
+		for (int i = 0; i < str; i++)
+		for (int j = 0; j < matr2.col; j++)
+		for (int k = 0; k < col; k++)
+			temp.matr[i][j] += matr[i][k] * matr2.matr[k][j];
+		return temp;
+	}
+}
+bool Matrix::operator==(const Matrix& matrix)const
+{
+	bool f = 1;
+	if (str != matrix.str || col != matrix.col)
+	{
+		cout << "Размер матриц не совпадает" << endl;
+		return 0;
+	}
+	else
+	{
+		for (int i = 0; i < str; i++)
+		for (int j = 0; j < col; j++)
+		if (matr[i][j] != matrix.matr[i][j])
+			f = 0;
+	}
+	return f;
 }
