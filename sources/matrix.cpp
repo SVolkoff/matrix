@@ -52,13 +52,9 @@ void Matrix::scan(string fname)
 
 	else
 	{
-		matr = new int*[str];
 		for (int i = 0; i < str; i++)
-		{
-			matr[i] = new int[col];
 			for (int j = 0; j < col; j++)
 				file >> matr[i][j];
-		}
 	}
 	file.close();
 }
