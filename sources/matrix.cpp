@@ -41,10 +41,6 @@ Matrix:: ~Matrix()
 }
 void Matrix::scan(string fname)
 {
-	cout << "Введите число строк";
-	cin >> str;
-	cout << "Введите число столбцов";
-	cin >> col;
 	ifstream file;
 	file.open(fname);
 	if (!file.is_open())
