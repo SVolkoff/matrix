@@ -41,14 +41,7 @@ SCENARIO("*", "[init]")
 	REQUIRE((matr1 * matr2) == matr12);
 }
 				
-SCENARIO("scan", "[init]")
-{
-	Matrix matr1(3, 3);
-	Matrix matr2(matr1);
-	std::ifstream ("matr1.txt") >> matr1;
-	matr2.scan("matr1.txt");
-	REQUIRE(matr1 == matr2);
-}
+
 
 SCENARIO("==", "[init]")
 {
