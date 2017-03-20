@@ -3,21 +3,21 @@
 
 SCENARIO("matrix init", "[init]") {
 	Matrix matrix;
-	REQUIRE(matrix.str() == 0);
-	REQUIRE(matrix.col() == 0);
+	REQUIRE(matrix.lines_() == 0);
+	REQUIRE(matrix.columns_() == 0);
 }
 SCENARIO("matrix with params", "[init]")
 {
 	Matrix matrix(3,3);
-	REQUIRE(matrix.str() == 3);
-	REQUIRE(matrix.col() == 3);
+	REQUIRE(matrix.lines_() == 3);
+	REQUIRE(matrix.columns_() == 3);
 }
 SCENARIO("copy", "[init]")
 {
 	Matrix matrix(3,3);
 	Matrix copy(matrix);
-	REQUIRE(copy.str() == 3);
-	REQUIRE(copy.col() == 3);
+	REQUIRE(copy.lines_() == 3);
+	REQUIRE(copy.columns_() == 3);
 }
 SCENARIO("+", "[init]")
 {
