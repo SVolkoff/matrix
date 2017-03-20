@@ -12,7 +12,4 @@ matrix methods:
 - [x] operator +
 - [x] operator *
 - [x] scan
-- [x] operator ==
-- [x] operator =
-
 
