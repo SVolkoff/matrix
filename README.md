@@ -5,7 +5,7 @@
 matrix methods:
 - [x] default constructor
 - [x] constructor with params
-- [] destructor
+- [ ] destructor
 - [x] copy
 - [x] operator +
 - [x] operator *
