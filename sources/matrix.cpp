@@ -37,11 +37,11 @@ Matrix:: ~Matrix()
 	}
 	delete[] matr;
 }
-int Matrix::line_()
+int Matrix::lines_()
 {
 	return str;
 }
-int Matrix::column_()
+int Matrix::columns_()
 {
 	return col;
 }
