@@ -134,7 +134,7 @@ Matrix Matrix::operator* (const Matrix  &matr2)const
 		for (int i = 0; i < str; i++)
 			for (int j = 0; j < matr2.col; j++)
 			{
-				C.A[i][j] = 0;
+				temp.matr[i][j] = 0;
 				for (int k = 0; k < col; k++)
 					temp.matr[i][j] += matr[i][k] * matr2.matr[k][j];
 			}
