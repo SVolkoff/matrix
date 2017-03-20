@@ -12,7 +12,6 @@ SCENARIO("matrix with params", "[init]")
 	REQUIRE(matrix.str() == 3);
 	REQUIRE(matrix.col() == 3);
 }
-!!!!!!!
 SCENARIO("copy", "[init]")
 {
 	Matrix matrix(3,3);
@@ -27,7 +26,7 @@ SCENARIO("+", "[init]")
 	Matrix matr12(3, 3);
 	std::ifstream ("matr1.txt") >> matr1;
 	std::ifstream ("matr2.txt") >> matr2;
-	std::ifstream ("matr12.txt") >> matr12;
+	std::ifstream ("matr1+2.txt") >> matr12;
 	REQUIRE((matr1 + matr2) == matr12);
 }
 
@@ -38,7 +37,7 @@ SCENARIO("*", "[init]")
 	Matrix matr12(3, 3);
 	std::ifstream ("matr1.txt") >> matr1;
 	std::ifstream ("matr2.txt") >> matr2;
-	std::ifstream ("matr12.txt") >> matr12;
+	std::ifstream ("matr1*2.txt") >> matr12;
 	REQUIRE((matr1 * matr2) == matr12);
 }
 				
