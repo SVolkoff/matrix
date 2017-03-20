@@ -3,9 +3,7 @@
 Matrix::Matrix()
 {
 	str = col = 0;
-	matr = new int*[str];
-	for (int i = 0; i < str; i++)
-		matr[i] = new int[col];
+	this->matr = nullptr;
 }
 Matrix::Matrix(int m, int n)
 {
@@ -134,9 +132,12 @@ Matrix Matrix::operator* (const Matrix  &matr2)const
 	{
 		Matrix temp(str, matr2.col);
 		for (int i = 0; i < str; i++)
-		for (int j = 0; j < matr2.col; j++)
-		for (int k = 0; k < col; k++)
-			temp.matr[i][j] += matr[i][k] * matr2.matr[k][j];
+			for (int j = 0; j < matr2.col; j++)
+			{
+				C.A[i][j] = 0;
+				for (int k = 0; k < col; k++)
+					temp.matr[i][j] += matr[i][k] * matr2.matr[k][j];
+			}
 		return temp;
 	}
 }
@@ -152,8 +153,8 @@ bool Matrix::operator==(const Matrix& matrix)const
 	{
 		for (int i = 0; i < str; i++)
 		for (int j = 0; j < col; j++)
-		if (matr[i][j] != matrix.matr[i][j])
-			f = 0;
+			if (matr[i][j] != matrix.matr[i][j])
+				f = 0;
 	}
 	return f;
 }
