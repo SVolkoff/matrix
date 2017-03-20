@@ -56,7 +56,7 @@ SCENARIO("==", "[init]")
 	Matrix matr2(3, 3);
 	bool f;
 	std::ifstream("matr1.txt") >> matr1;
-	std::ifstream("matr1.txt") >> matr2;
+	std::ifstream("matr2.txt") >> matr2;
 	if (matr1 == matr2)
 		f = true;
 	REQUIRE(f == true);
