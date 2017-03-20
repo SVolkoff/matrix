@@ -39,6 +39,14 @@ Matrix:: ~Matrix()
 	}
 	delete[] matr;
 }
+int Matrix::line_()
+{
+	return str;
+}
+int Matrix::column_()
+{
+	return col;
+}
 void Matrix::scan(string fname)
 {
 	ifstream file;
