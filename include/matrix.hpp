@@ -14,6 +14,8 @@ public:
 	Matrix();
 	Matrix(int m, int n);
 	Matrix(Matrix &Cpymatr);
+	int сolumn_();
+	int line_();
 	~Matrix();
 	void scan(string fname);
 	friend istream& operator >> (istream& stream, const Matrix& matrix);
