@@ -13,8 +13,8 @@ public:
 	Matrix();
 	Matrix(int m, int n);
 	Matrix(Matrix &Cpymatr);
-	int lines_()
-	int columns_()
+	int lines_();
+	int columns_();
 	~Matrix();
 	void scan(string fname);
 	friend istream& operator >> (istream& stream, const Matrix& matrix);
