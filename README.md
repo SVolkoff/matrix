@@ -11,5 +11,4 @@ matrix methods:
 - [x] copy
 - [x] operator +
 - [x] operator *
-- [x] scan
 
