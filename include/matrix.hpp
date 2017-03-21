@@ -12,9 +12,9 @@ private:
 public:
 	Matrix();
 	Matrix(int m, int n);
-	Matrix(Matrix &Cpymatr);
-	int lines_();
-	int columns_();
+	Matrix(Matrix const &Cpymatr);
+	int lines_()const;
+	int columns_()const;
 	~Matrix();
 	void scan(const string fname);
 	friend istream& operator >> (istream& stream, Matrix& matrix);
