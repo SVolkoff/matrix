@@ -86,9 +86,9 @@ Matrix Matrix::operator+ (const Matrix &matr2)const
 {
 	if ((str != matr2.str) || (col != matr2.col))
 	{
-		Matrix temp(0, 0);
 		cout << "Размер матриц не совпадает";
-		return temp;
+		system("pause");
+		exit(1);
 	}
 	else
 	{
@@ -123,9 +123,9 @@ Matrix Matrix::operator* (const Matrix  &matr2)const
 {
 	if (matr2.str != col)
 	{
-		Matrix temp(0, 0);
 		cout << "Размер матриц не совпадает";
-		return temp;
+		system("pause");
+		exit(1);
 	}
 
 	else
