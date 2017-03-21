@@ -146,7 +146,6 @@ bool Matrix::operator==(const Matrix& matrix)const
 	bool f = 1;
 	if (str != matrix.str || col != matrix.col)
 	{
-		cout << "Размер матриц не совпадает" << endl;
 		return 0;
 	}
 	else
@@ -155,6 +154,6 @@ bool Matrix::operator==(const Matrix& matrix)const
 		for (int j = 0; j < col; j++)
 			if (matr[i][j] != matrix.matr[i][j])
 				f = 0;
+		return f;
 	}
-	return f;
 }
