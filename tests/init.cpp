@@ -63,10 +63,4 @@ SCENARIO("=", "[init]")
 	matr2 = matr1;
 	REQUIRE(matr1 == matr2);
 }
-SCENARIO("scan") {
-	Matrix m1(3, 3);
-	Matrix m2(3, 3);
-	std::ifstream("matr1.txt") >> m1;
-	m2.scan("matr1.txt");
-	REQUIRE(m1 == m2);
-}
+
