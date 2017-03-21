@@ -17,7 +17,7 @@ Matrix::Matrix(int m, int n)
 	}
 
 }
-Matrix::Matrix(Matrix &Cpymatr)
+Matrix::Matrix(const Matrix &Cpymatr)
 {
 	str = Cpymatr.str;
 	col = Cpymatr.col;
@@ -37,11 +37,11 @@ Matrix:: ~Matrix()
 	}
 	delete[] matr;
 }
-int Matrix::lines_()
+int Matrix::lines_()const
 {
 	return str;
 }
-int Matrix::columns_()
+int Matrix::columns_()const
 {
 	return col;
 }
@@ -74,7 +74,7 @@ ostream& operator << (ostream& stream, const Matrix& matrix)
 	}
 	return stream;
 }
-istream& operator >> (istream& stream, const Matrix& matrix)
+istream& operator >> (istream& stream, Matrix& matrix)
 {
 	for (int i = 0; i < matrix.str; i++)
 	for (int j = 0; j < matrix.col; j++)
