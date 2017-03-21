@@ -16,8 +16,8 @@ public:
 	int lines_();
 	int columns_();
 	~Matrix();
-	void scan(string fname);
-	friend istream& operator >> (istream& stream, const Matrix& matrix);
+	void scan(const string fname);
+	friend istream& operator >> (istream& stream, Matrix& matrix);
 	friend ostream& operator << (ostream& stream, const Matrix& matrix);
 	Matrix& operator =(const Matrix &matrix);
 	Matrix operator+ (const Matrix &matr2)const;
